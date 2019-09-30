@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
+    <title>Inicio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" class="actual">Inicio</a> <a href="chartjs-line.html">Mortalidad</a> <a href="chartjs-bar.html">Control</a> <a href="chartjs-radar.html">Opiniones</a> <a href="c3js-line.html">Apoyo</a> <a href="d3plus-treemap.html">MAPPR</a>
+    </nav>
+
+    <div id="home">
+        <p><span id="saluda"></span> Somos Ramiro Salinas y Diego Vega. En este sitio web podrás ver datos sobre el Proyecto de Apoyo al Recien Nacido (P.A.R.N) así como distintos datos de los materiales gráficos que este produce </p>
+    </div>
+    <script>
+        var saludos = ["Hola", "Wena", "Konichiwa", "Hi there"];
+        var cromas = ["#ff8a80", "#ea80fc", "#8c9eff", "#80d8ff"]
+
+        function setup() {
+            noCanvas();
+            createElement('strong', random(saludos) + '!').parent('saluda').style('color', random(cromas));
+        }
+    </script>
+
+</body>
+
+</html>

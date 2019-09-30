@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
+    <title>Mortalidad</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+</head>
+
+<body>
+
+    <nav>
+        <a href="index.html" >Inicio</a> <a href="chartjs-line.html"class="actual">Mortalidad</a> <a href="chartjs-bar.html">Control</a> <a href="chartjs-radar.html">Opiniones</a> <a href="c3js-line.html">Apoyo</a> <a href="d3plus-treemap.html">MAPPR</a>
+    </nav>
+
+    <canvas id="lineChart"></canvas>
+
+    <script>
+      const CHART = document.getElementById("lineChart")
+      console.log(CHART);
+      let lineChart = new Chart(CHART,{
+        type: 'line',
+        data: {
+          labels: ["Las Condes", "Santiago", "Puente Alto", "Maipú", "La Florida", "Providencia"],
+          datasets: [
+            {
+            label: 'Mortalidad de menores de 1 año',
+            backgroundColor: 'rgba(255, 55, 55,.1)',
+            borderColor: 'rgb(255, 55, 55)',
+            borderWidth: 2,
+            pointRadius: 2,
+            lineTension: 0.1,
+            data: [43, 96, 167, 144, 94, 24]
+          }
+        ]
+      },
+      options: {
+          title: {
+              display: true,
+              text: 'Tasa de Mortalidad Infantil en niñes menores de 1 año'
+          },
+          legend: {
+              position: 'bottom'
+          },
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      callback: function(value, index, values) {
+                          return value + ' º';
+                      }
+                  }
+              }]
+          }
+      }
+  })
+
+    </script>
+
+</body>
+
+</html>

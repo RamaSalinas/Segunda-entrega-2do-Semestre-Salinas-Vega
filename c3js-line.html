@@ -1,0 +1,46 @@
+<!doctype html>
+
+<html lang="es">
+<!-- Load c3.css -->
+<link href="/path/to/c3.css" rel="stylesheet">
+
+<!-- Load d3.js and c3.js -->
+<script src="/path/to/d3.v5.min.js" charset="utf-8"></script>
+<script src="/path/to/c3.min.js"></script>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
+    <title>Apoyo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.1/c3.min.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.1/c3.min.js"></script>
+</head>
+
+<body>
+<h1>Apoyo principal para la madre</h1>
+<h3>Expresado en porcentaje</h3>
+    <nav>
+        <a href="index.html" >Inicio</a> <a href="chartjs-line.html">Mortalidad</a> <a href="chartjs-bar.html">Control</a> <a href="chartjs-radar.html">Opiniones</a> <a href="c3js-line.html"class="actual">Apoyo</a> <a href="d3plus-treemap.html">MAPPR</a>
+    </nav>
+
+    <div id="chart"></div>
+
+    <script>
+    var chart = c3.generate({
+  bindto: '#chart',
+  data: {
+    labels: ['Su Pareja', 'Su Madre', 'Otro(a Hijo(a))', 'Hermano(a)', 'Otro Familiar', 'Su Padre', 'Amigo(a)'], //No pudimos cambiar el axis X porque nuestros valores no correspondían a intervalos de tiempo para usar en "timeseries"
+    columns: [
+      ['Porcentaje', 68, 22, 6, 2, 2, 2,1]
+    ],
+  }
+});
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
+    <title>Opiniones</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+</head>
+
+<body>
+  <h2>"¿Como cree que podria mejorarse el material pensando en su calidad y diseño?"</h2>
+    <nav>
+        <a href="index.html" >Inicio</a> <a href="chartjs-line.html">Mortalidad</a> <a href="chartjs-bar.html">Control</a> <a href="chartjs-radar.html"class="actual">Opiniones</a> <a href="c3js-line.html">Apoyo</a> <a href="d3plus-treemap.html">MAPPR</a>
+    </nav>
+
+    <canvas id="chart"></canvas>
+
+    <script>
+        var w = document.body.offsetWidth;
+        var sel;
+        function setup() {
+            noCanvas();
+            sel = createSelect();
+            sel.position(w - 180, 18);
+            sel.option('Guia de Gestación',0);
+            sel.option('Agenda de La Mujer', 1);
+            sel.changed(opciones);
+            gestacion();
+        }
+        function opciones() {
+            clear();
+            if (sel.value() == 0) {
+                gestacion();
+            } else {
+                mujer();
+            }
+        }
+        function gestacion() {
+            new Chart(document.getElementById('chart').getContext('2d'), {
+              type: 'radar',
+              data: {
+                  labels: ["Nada/Esta Bien", "Calidad de Material", "Espirales o anillos", "Diseño (Fotos y Colores)", "Más Grande", "Más Pequeña", "N/R"],
+                  datasets: [{
+                      label: "Guia de Gestación",
+                      backgroundColor: 'rgba(155, 155, 255,.1)',
+                      borderColor: '#79f',
+                      borderWidth: 1,
+                      pointRadius: 1,
+                      lineTension: 0,
+                      data: [67,2,4,4,5,20,2],
+                  }]
+              },
+              options: {
+                  title: {
+                      display: true,
+                      text: 'Guia de Gestación (100% = 373 consultados)'
+                  },
+                  legend: {
+                      position: 'bottom'
+                  },
+                  scale: {
+                      ticks: {
+                          min: 0,
+                          max: 100,
+                          stepSize: 20
+                      }
+                  }
+              }
+          });
+      }
+        function mujer() {
+            new Chart(document.getElementById('chart').getContext('2d'), {
+                type: 'radar',
+                data: {
+                    labels: ["Nada/Esta Bien", "Calidad de Material", "Espirales o anillos", "Diseño (Fotos y Colores)", "Más Grande", "Más Pequeña", "N/R"],
+                    datasets: [{
+                        label: "Agenda de la Mujer",
+                        backgroundColor: 'rgba(255, 155, 255,.1)',
+                        borderColor: '#red',
+                        borderWidth: 1,
+                        pointRadius: 1,
+                        lineTension: 0,
+                        data: [44,33,20,8,3,2,1],
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Agenda de La Mujer (100% = 360 consultados)'
+                    },
+                    legend: {
+                        position: 'bottom'
+                    },
+                    scale: {
+                        ticks: {
+                            min: 0,
+                            max: 100,
+                            stepSize: 20
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
